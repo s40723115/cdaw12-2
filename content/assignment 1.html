@@ -156,20 +156,44 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">40723115 << <a href='40723115.html'>Previous</a> <a href='project.html'>Next</a> >> project<br /><h1>python３８２更新</h1>
-<ol style="list-style-type: upper-roman;">
-<li style="text-align: left;"><span>首先到" https://www.python.org/downloads/release/python-382/ "下載Window x86-64 executable installer，下載完後，執行python-3.8.2-amd64.exe </span></li>
-<li style="text-align: left;"><span>選Customize installation，再uncheck pip option，就可以繼續安裝置完成。</span></li>
-<li><span>進入安裝號的對應目錄複製檔案到 " 201906_fall/data"</span></li>
-<li>SciTE下載: 從 " <a href="https://www.scintilla.org/SciTEDownload.html">https://www.scintilla.org/SciTEDownload.html</a> " 下載 "<span> </span><a href="https://www.scintilla.org/wscite432.zip">full 64-bit download</a> " 載完病解壓縮後，搬移至data下(有需要的話)，接著到相應的目錄執行SciTE.exe，開啟後到 OPTION&gt;&gt;&gt;OPEN GLOBAL OPTION FILE進行切換到UTF-8編碼即開啟即時更新:                                                                                                            <span>將code.page=0更改成code.page=65001(切換到UTF-8編碼)                                      將#load.on.activate=1的井字號拿掉(開啟即時更新)，儲存，關閉SciTE。 </span></li>
-<li><span>ＭＳＹＳ２下載：<a href="https://www.msys2.org/">https://www.msys2.org/</a><span><span> 　下載msys2-x86_64-20190524.exe 並執行　，點選Ｂｒｏｗｓｅ，選擇２０１９０６＿ｆａｌｌ／ｄａｔａ後，就可開始安裝，安裝結束後，ｕｎｃｈｅｃｋRun MSYS2 64bit now，結束下載流程。</span></span></span></li>
-<li><span><span><span>protablegit下載:<a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> 下載 64-bit Git for WindowsPortable安裝在data目錄下</span></span></span></li>
-<li><span><span><span>pip下載:到<a href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a><span>頁面，滑鼠右鍵另存新檔到CD2020/data執行，到cmd 輸入python get-pip.py開始下載，下載完成後輸入pip，測試pip是否正常運行。</span></span></span></span></li>
-<li><span><span><span><span>下載可在python使用的模組flask,bs4,xml,elican, mrkdown,flask_cors,leo，指令為pip install flask bs4 lxml pelican markdown flask_cors leo</span></span></span></span></li>
-<li><span><span><span><span>git clone 整個倉儲到 data 目錄下並命名目錄為 tmp</span></span></span></span></li>
-<li><span><span><span><span>putty下載:下載<a href="https://github.com/s40723150/cd2020/raw/master/downloads/putty.7z">putty</a><span>放到data裡面，把之前的ssh和.gitconfig放到home裡面測試是否可以成功用ssh推送資料。</span></span></span></span></span></li>
-</ol>
-<br />40723115 << <a href='40723115.html'>Previous</a> <a href='project.html'>Next</a> >> project</div>
+    <div id="tipue_search_content">project << <a href='project.html'>Previous</a> <a href='assignment 2.html'>Next</a> >> assignment 2<br /><h1>assignment 1</h1>
+<p>亂數分組</p>
+<p>import random</p>
+<p>import requests</p>
+<p># getNumList 主要在每組最低人數下, 將不足 10 人的分組平均分配至各組 def getNumList(total, eachGrp=10):</p>
+<p># total is the number of students</p>
+<p># each group at least 10 students #eachGrp = 10; # may divide into "grpNum" number of group grpNum = total // eachGrp;</p>
+<p># check grpNum #print(grpNum)</p>
+<p># vacan list splits = []</p>
+<p># find remainder when total number divid into "grpNum" number of group remainder = total % grpNum</p>
+<p># number of people in one group by calculation calGrp = total // grpNum for i in range(grpNum): splits.append(calGrp)</p>
+<p># check first splits</p>
+<p>#print(splits) for i in range(remainder): splits[i] += 1</p>
+<p># check final splits #print(splits); return splits; # 儲存學生名單資料的 url target_url = "http://mde.tw/cd2020/downloads/2020spring_cd_2a_list.txt"</p>
+<p># 利用 requests 讀取 url 中的資料 f = requests.get(target_url)</p>
+<p># get student list from target_url # 利用 splitlines() 將資料放入數列 studList studList = f.text.splitlines() # 每組預計分組的最低人數 num_in_one_group = 10</p>
+<p># 每組學員暫存數列 gpList = []</p>
+<p># 全班分組數列 group = []</p>
+<p># 各組人數數列 numList = []</p>
+<p># get numList numList = getNumList(len(studList), num_in_one_group)</p>
+<p># check numList # 列出已經補齊的各組人數數列 print("預計各組人數數列:" + str(numList)) output = "" gth = 1 inc = 0</p>
+<p># 弄亂 studList random.shuffle(studList) output += "以下為尚未排序前的各組學員學號: \n" for i in numList: # 列印區隔符號 output += '=' * 20 + "\n"; output += "group " + str(gth) + " 有 " + str(i) + " 人: \n"</p>
+<p># 每組學員暫存數列, 在此 reset gpList = [] for j in range(i): output += studList[j+inc] + "\n"</p>
+<p># 在各分組數列中加入將對應的學員學號 gpList.append(studList[j+inc]) gth = gth + 1 inc = inc + j # 將各組學員數列依照學號排序 gpList.sort() group.append(gpList)</p>
+<p># 列出尚未排序前的分組結果 print(output)</p>
+<p># 列出已經完成排序的分組數列 print("已經排序後的分組數列:" + str(group)) output = ""</p>
+<p># 列出已經排序後的分組名單 output += '=' * 25 + "\n" output += '以下為排序後的各組成員名單:\n' gth = 1</p>
+<p># 先列出純文字以 \n 跳行組員資料 for i in range(len(group)):</p>
+<p># 列印區隔符號 output += '=' * 20 + "\n" output += "group" + str(gth) + "\n" gpList = [] for j in range(len(group[i])): output += str(group[i][j]) + "\n" gth = gth + 1 print(output)</p>
+<h4>每組隨機抽選:</h4>
+<p>學員名單 URL:</p>
+<select id="RstudListUrl">
+<option selected="selected" value="https://mde.tw/cd2020/downloads/2a_group_list.txt">2a</option>
+<option value="https://mde.tw/cd2020/downloads/2b_group_list.txt">2b</option>
+</select>
+<p><br/> 每組抽選人數: <input id="RnumOfStud" size="2" type="text" value="1"/><br/> <input id="Rsubmit" type="submit" value="開始"/><br/> <textarea cols="80" id="Routput" rows="10"></textarea></p>
+<script src="https://mde.tw/cd2020/downloads/dart_ex/random_select/random_select.js"></script>
+<br />project << <a href='project.html'>Previous</a> <a href='assignment 2.html'>Next</a> >> assignment 2</div>
         
     <!-- footer -->
       <div class="container">
